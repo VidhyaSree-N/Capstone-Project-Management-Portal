@@ -153,7 +153,7 @@ function PublishProjects() {
   useEffect(() => {
     if (searchName) {
       const filtered = clients.filter((client) =>
-        client.name.includes(searchName)
+        client.name.toLowerCase().includes(searchName.toLowerCase())
       );
       setFilteredClients(filtered);
     } else {
@@ -215,7 +215,7 @@ function PublishProjects() {
     setSearchName(event.target.value);
     if (searchName) {
       const filtered = clients.filter((client) =>
-        client.name.includes(searchName)
+        client.name.toLowerCase().includes(searchName.toLowerCase())
       );
       setFilteredClients(filtered);
     } else {

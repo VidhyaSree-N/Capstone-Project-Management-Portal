@@ -127,7 +127,7 @@ function StudentCoursesPage({ data }) {
   useEffect(() => {
     if (searchName) {
       const filtered = projects.filter((client) =>
-        client.name.includes(searchName)
+        client.name.toLowerCase().includes(searchName.toLowerCase())
       );
       setFilteredProjects(filtered);
     } else {
@@ -166,7 +166,7 @@ function StudentCoursesPage({ data }) {
     setSearchName(event.target.value);
     if (searchName) {
       const filtered = projects.filter((client) =>
-        client.name.includes(searchName)
+        client.name.toLowerCase().includes(searchName.toLowerCase())
       );
       setFilteredProjects(filtered);
     } else {

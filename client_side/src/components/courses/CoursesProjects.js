@@ -145,7 +145,7 @@ export default function CoursesProject({course}) {
     const handleSearchNameChange = (event) => {
       setSearchName(event.target.value);
       if (searchName) {
-        const filtered = projects.filter((student) => student.name.includes(searchName));
+        const filtered = projects.filter((student) => student.name.toLowerCase().includes(searchName.toLowerCase()));
         setFilteredProjects(filtered);
       } else {
         setFilteredProjects(projects);
@@ -155,7 +155,7 @@ export default function CoursesProject({course}) {
     useEffect(() => {
       setProjects(data.projects);
       if (searchName) {
-        const filtered = projects.filter((project) => project.name.includes(searchName));
+        const filtered = projects.filter((project) => project.name.toLowerCase().includes(searchName.toLowerCase()));
         setFilteredProjects(filtered);
       } else {
         setFilteredProjects(projects);

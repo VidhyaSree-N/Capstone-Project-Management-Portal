@@ -164,7 +164,7 @@ export default function AdminCoursesPage() {
 
   useEffect(() => {
     if (searchName) {
-      const filtered = allCourses.filter((project) => project.name.includes(searchName));
+      const filtered = allCourses.filter((project) => project.name.toLowerCase().includes(searchName.toLowerCase()));
       setFilteredCourses(filtered);
     } else {
       setFilteredCourses(allCourses);
@@ -191,7 +191,7 @@ export default function AdminCoursesPage() {
   const handleSearchNameChange = (event) => {
     setSearchName(event.target.value);
     if (searchName) {
-      const filtered = allCourses.filter((course) => course.name.includes(searchName));
+      const filtered = allCourses.filter((course) => course.name.toLowerCase().includes(searchName.toLowerCase()));
       setFilteredCourses(filtered);
     } else {
       setFilteredCourses(allCourses);

@@ -154,7 +154,7 @@ export default function ClientDashBoard() {
 
   useEffect(() => {
       if (searchName) {
-        const filtered = projects.filter((project) => project.name.includes(searchName));
+        const filtered = projects.filter((project) => project.name.toLowerCase().includes(searchName.toLowerCase()));
         setFilteredProjects(filtered);
       } else {
         setFilteredProjects(projects);
@@ -178,7 +178,7 @@ export default function ClientDashBoard() {
   const handleSearchNameChange = (event) => {
     setSearchName(event.target.value);
     if (searchName) {
-      const filtered = projects.filter((project) => project.name.includes(searchName));
+      const filtered = projects.filter((project) => project.name.toLowerCase().includes(searchName.toLowerCase()));
       setFilteredProjects(filtered);
     } else {
       setFilteredProjects(projects);
