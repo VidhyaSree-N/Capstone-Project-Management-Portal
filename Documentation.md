@@ -178,14 +178,69 @@ This maps over the user data to create **TableRow** components with **TableCell*
 \
 Overall, this component fetches user data, displays it in a table, allows searching, and provides options for deleting users. It also includes styling and uses Material-UI components for a consistent design.
 
+### LearnMorePage Component Documentation
+
+##### Overview
+
+\
+The **LearnMorePage** component is a React functional component that represents the page providing information about the courses offered at UMass Boston. It includes details about the university's key features, diverse disciplines, and majors. The page encourages users to explore different departments and provides links for additional information.
+
+##### Structure
+
+\
+The component is structured using semantic HTML elements and leverages the Material-UI library for styling.
+
+##### Import Statements:
+![](addressed_bugs_and_pages_created/lm_imports.png)
+
+\
+The necessary dependencies are imported, including React, custom components (**Navbar**, **Footer**, and **FooterPlain**), and **Material-UI** components (Typography).
+
+##### Component Definition:
+![](addressed_bugs_and_pages_created/lm_component1.png)
+![](addressed_bugs_and_pages_created/lm_component2.png)
+
+##### Container and Styling:
+* The component is wrapped in a container div with flexbox styling to ensure proper layout.
+
+##### Navbar and Footer:
+* The Navbar component is included at the top, providing navigation functionality.
+* Two footer components (Footer and FooterPlain) are included at the bottom for additional information.
+Content Section:
+
+* The component includes sections with headers, paragraphs, and lists to present information about UMass Boston's courses, key features, and departments.
+Learn More Section:
+
+* A "Learn More" section provides a brief description of the Learn More page, inviting users to explore detailed information about the courses offered.
+##### External Link:
+
+* A link is provided to direct users to the UMass Boston Academics page. The link opens in a new tab (target="_blank") for user convenience.
+
+##### Usage
+* To use this component, include it in the routing configuration of the application or as part of a parent component responsible for rendering pages.
+
+![](addressed_bugs_and_pages_created/lm_import1.png)
+![](addressed_bugs_and_pages_created/lm_Route.png)
 
 
-# ClientDashBoard Component Documentation
 
-## Overview
+##### Notes
+
+* The component uses Material-UI's Typography component for consistent and stylized text.
+* The externalLink variable holds the URL for the external link, providing easy maintenance and updates.
+
+##### Recommendations
+
+* Ensure that the external link is kept up-to-date with the relevant UMass Boston Academics page.
+* Customize the content and styling as needed to align with the overall theme of the application.
+* Consider adding more sections or links based on the specific information you want to present on the Learn More page.
+
+### ClientDashBoard Component Documentation
+
+##### Overview
 The ⁠ ClientDashBoard ⁠ component is a React component designed for managing and displaying projects in a dashboard interface. It includes features like project preview, search functionality, pagination, and inviting learners via email.
 
-## Component Structure
+##### Component Structure
 •⁠  ⁠*Navbar*: A top navigation bar.
   ⁠ jsx
   <Navbar position="relative"></Navbar>
@@ -216,7 +271,7 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   <form>...</form>
    ⁠
 
-## State Management
+##### State Management
 •⁠  ⁠⁠ useState ⁠ hooks are used to manage component states, including:
   ⁠ jsx
   const [projects, setProjects] = useState([]);
@@ -224,7 +279,7 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   
    ⁠
 
-## API Interactions
+##### API Interactions
 •⁠  ⁠*Fetching Projects*: An ⁠ axios ⁠ GET request to '/api/projects' retrieves project data.
   ⁠ jsx
   const response = await axios.get('/api/projects');
@@ -238,7 +293,7 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   console.log('Sending invites to:', email);
    ⁠
 
-## Key Functionalities
+##### Key Functionalities
 •⁠  ⁠*Search*: Filters projects based on the search input.
   ⁠ jsx
   const handleSearchNameChange = (event) => {...};
@@ -260,17 +315,100 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   const handleExpandClick = (projectId) => {...};
    ⁠
 
-## Styling
+##### Styling
 •⁠  ⁠Material-UI's ⁠ styled ⁠ API and components like ⁠ Box ⁠, ⁠ Card ⁠, ⁠ Button ⁠ are used for styling.
   ⁠ jsx
   const Search = styled('div')(({ theme }) => ({...}));
    ⁠
 •⁠  ⁠Custom styled components are created for specific elements like ⁠ Search ⁠, ⁠ HoverTableRow ⁠, ⁠ StyledTableCell ⁠.
 
-## Notes
+##### Notes
 •⁠  ⁠The component relies on Material-UI for UI components and styling.
 •⁠  ⁠State management is achieved using React's ⁠ useState ⁠ and ⁠ useEffect ⁠ hooks.
 •⁠  ⁠The code includes placeholders for server interactions (API calls).
+
+### Can't close projects tab
+
+##### Before:
+![](bugs/Projrcts_tab.png)
+
+##### After:
+![](addressed_bugs_and_pages_created/closing_projects_tab.png)
+
+### Cams Portal Deployment Documentation
+
+\
+This documentation provides step-by-step instructions on deploying the CAMS (Capstone Project Management System) portal on a Render server. Render is a cloud platform that simplifies deployment and hosting.
+
+#### Prerequisites
+
+Before you begin, ensure you have the following:
+
+##### Render Account:
+
+\
+Create an account on Render if you don't have one.
+
+##### Source Code:
+
+\
+Make sure you have the latest version of the CAMS portal source code.
+
+##### Environment Configuration:
+
+* Prepare environment configuration files, such as .env or .env.production, containing necessary environment variables like database connection strings, API keys, and other configurations.
+
+##### Deployment Steps
+1. Create a New Web Service on Render:
+* Log in to your Render account.
+
+* Click on the Create New button in the dashboard.
+
+* Choose Web Service.
+
+* Connect your GitHub, GitLab, or Bitbucket repository where the CAMS portal source code is hosted.
+
+* Select the branch you want to deploy.
+
+2. Configure Build Settings:
+* In the Render dashboard, navigate to your service.
+
+* Go to the Settings tab.
+
+* Under the Builds & Deploys section, choose your build environment. For a Node.js app, you might select Node.js.
+
+* Set the build command. For example, if your CAMS portal is a React app, the build command might be npm run build.
+
+* Set the start command. This is typically npm start for Node.js apps.
+
+3. Configure Environment Variables:
+* In the same Settings tab, under the Environment section, add environment variables required by your CAMS portal.
+
+    * For example:
+        * REACT_APP_API_BASE_URL: The base URL of your API.
+        * REACT_APP_API_KEY: API key for accessing services.
+4. Database Configuration (if applicable):
+* If your CAMS portal uses a database, ensure that your database is accessible from Render.
+
+* Update the database connection string or other database-related configurations in your environment variables.
+
+5. Save Changes and Deploy:
+* Save your changes.
+
+Trigger a manual deployment or wait for Render to automatically deploy your app.
+
+Render will provide a live URL for your deployed CAMS portal.
+
+![](addressed_bugs_and_pages_created/deployment1.jpg)
+![](addressed_bugs_and_pages_created/deployment2.jpg)
+![](addressed_bugs_and_pages_created/deployment3.jpg)
+
+
+
+
+
+
+
 
 
 
